@@ -35,6 +35,8 @@
         </div>
       </nav>
     </div>
+
+    
     <!--Mobile Navigation-->
     <ul class="sidenav" id="mobile-nav">
       <li><a href="/" class="nav-link">Home</a></li>
@@ -51,6 +53,7 @@
     </div>
   </section>
 
+<main>
   <section id="section_features">
     <div class="row">
       <div class="col s12 m7 l3">
@@ -75,9 +78,9 @@
           </div>
           <div class="card-content">
             <p>Gather around with freinds and family to experience the intresting questions and answers Brainiark has in store for you and others
-               to get you set for examination with real time stimulation.</p>
+                to get you set for examination with real time stimulation.</p>
           </div>
-           <div class="card-links">
+            <div class="card-links">
             <a class="waves-effect waves-light btn" href="/about">about</a>
           </div>
         </div>
@@ -92,13 +95,14 @@
               questions will still need you to access your books for more <b>understanding</b>.
             </p>
           </div>
-           <div class="card-links">
+            <div class="card-links">
             <a class="waves-effect waves-light btn" href="privacy">privacy</a>
           </div>
         </div>
       </div>
     </div>
   </section>
+
   <!--Form-->
   <section class="signup-cont section scrollspy" id="signup">
     <div class="row">
@@ -107,11 +111,10 @@
               <h3>SIGN UP</h3>
           </div>
           <ul>
-            <li class="signup-design"><span><% include partials/checkmark %></span> Well performed library</li>
-            <li class="signup-design"><span><% include partials/checkmark %></span> The Best Student Experience</li>
-            <li class="signup-design"><span><% include partials/checkmark %></span> Access To Failed Questions</li>
+            <li class="signup-design"><span><%- include ("partials/checkmark.ejs") %></span> Well performed library</li>
+            <li class="signup-design"><span><%- include ("partials/checkmark.ejs")%></span> The Best Student Experience</li>
+            <li class="signup-design"><span><%- include ("partials/checkmark.ejs") %></span> Access To Failed Questions</li>     
           <ul>
-          <!-- <div class="signup-learn-more"><button>Learn More</button></div> -->
           <div class="signup-learn-more">
             <a href="/about">
             <button>Learn More</button>
@@ -120,64 +123,63 @@
         </div>
         <div class="col s12 l5 offset-l2">
           <form action="/signup" method="POST">
-            <% if(message.length > 0){ %>
-              <div id="signinMessage">
-                <span><%= message %></span>
+            <!-- SIGNIN MESSAGE -->
+            
+          <div class="row">
+                <div class="col s6 l6">
+                  <div class="input-field">
+                    <i class="fas fa-user prefix"></i>
+                    <input type="text" id="firstname" name="firstname" maxlength="12">
+                    <label for="firstname">First Name</label>
+                  </div>
+                </div>
+                <div class="col s6 l6">
+                  <div class="input-field">
+                    <input type="text" id="lastname" name="lastname" maxlength="12">
+                    <label for="lastname">Last Name</label>
+                  </div>
+                </div>
               </div>
-            <%} %>
-            <div class="row">
-                  <div class="col s6 l6">
-                    <div class="input-field">
-                      <i class="fas fa-user prefix"></i>
-                      <input type="text" id="firstname" name="firstname" maxlength="12">
-                      <label for="firstname">First Name</label>
+              <div class="row">
+                <div class="col s12 l12">
+                  <div class="input-field">
+                    <i class="material-icons prefix">email</i>
+                    <input type="email" id="email" name="email" class="validate">
+                    <label for="email">Email</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-lock prefix"></i>
+                    <input id="password" type="password" name="password" class="validate" minlength="1" maxlength="14">
+                    <label for="password">Password</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s12 l12">
+                  <!-- for desktop -->
+                  <div class="input-field right hide-on-med-and-down">
+                    <div class="submit-design">
+                        <button type="submit" >Submit</button>
                     </div>
                   </div>
-                  <div class="col s6 l6">
-                    <div class="input-field">
-                      <input type="text" id="lastname" name="lastname" maxlength="12">
-                      <label for="lastname">Last Name</label>
+                  <!-- for mobile -->
+                  <div class="input-field hide-on-large-only show-on-small">
+                    <div class="submit-design">
+                      <button type="submit">Submit</button>
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col s12 l12">
-                    <div class="input-field">
-                      <i class="material-icons prefix">email</i>
-                      <input type="email" id="email" name="email" class="validate">
-                      <label for="email">Email</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                      <i class="fas fa-lock prefix"></i>
-                      <input id="password" type="password" name="password" class="validate" minlength="1" maxlength="14">
-                      <label for="password">Password</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col s12 l12">
-                    <!-- for desktop -->
-                    <div class="input-field right hide-on-med-and-down">
-                      <div class="submit-design">
-                          <button type="submit" >Submit</button>
-                      </div>
-                    </div>
-                    <!-- for mobile -->
-                    <div class="input-field hide-on-large-only show-on-small">
-                      <div class="submit-design">
-                        <button type="submit">Submit</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-          </form>
-        </div>
-    </div>
+              </div>
+        </form>
+      </div>
+  </div>
   </section>
+</main>
+
   <footer>
-    <% include partials/footer %>
+    <%- include("partials/footer") %>
   </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -185,15 +187,15 @@
 <script src="/javascripts/signin.js"></script>
 <script src="/js/footer.js"></script>
 <script>
-      $(document).ready(function () {
-          $('.tabs').tabs();
-          $('.tooltipped').tooltip();
-          $('.sidenav').sidenav();
-          $('.parallax').parallax();
-          $('.materialboxed').materialbox();
-          $('.scrollspy').scrollSpy();
-          $('.tabs').tabs();
-        });
+  $(document).ready(function () {
+      $('.tabs').tabs();
+      $('.tooltipped').tooltip();
+      $('.sidenav').sidenav();
+      $('.parallax').parallax();
+      $('.materialboxed').materialbox();
+      $('.scrollspy').scrollSpy();
+      $('.tabs').tabs();
+    });
 </script>
 </body>
 </html>

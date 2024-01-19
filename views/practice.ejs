@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <!--Import Google Icon Font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
-    crossorigin="anonymous">
+  crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="/stylesheets/static.css">
-    <link rel="stylesheet" href="/stylesheets/footer.css">
-    <title>Brainiark | Practice</title>
+  <link rel="stylesheet" href="/stylesheets/static.css">
+  <link rel="stylesheet" href="/stylesheets/footer.css">
+  <title>Brainiark | Practice</title>
 </head>
 <body>
-    <header>
-        <% include partials/home-nav %>
-    </header>
+  <header>
+      <%- include ("partials/home-nav.ejs") %>
+  </header>
 
-    <section id="practice">
-        <div class="section-container">
-            <div class="row" id="subject-choices"></div>
-        </div>
-    </section>
+  <section id="practice">
+      <div class="section-container">
+          <div class="row" id="subject-choices"></div>
+      </div>
+  </section>
 
-    <footer>
-        <% include partials/footer %>
-    </footer>
+  <footer>
+      <%- include ("partials/footer.ejs") %>
+  </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script src="/javascripts/nav.js"></script>
-    <script src="/js/footer.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.sidenav').sidenav();
-            $('.parallax').parallax();
-            $('.materialboxed').materialbox();
-            $('.scrollspy').scrollSpy();
-            $('.tabs').tabs();
-            $('.greet')
-                .fadeIn();
-        });
-    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script src="/javascripts/nav.js"></script>
+  <script src="/js/footer.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.sidenav').sidenav();
+      $('.parallax').parallax();
+      $('.materialboxed').materialbox();
+      $('.scrollspy').scrollSpy();
+      $('.tabs').tabs();
+      $('.greet')
+          .fadeIn();
+    });
+  </script>
 </body>
 </html>

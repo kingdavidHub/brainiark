@@ -1,78 +1,80 @@
-var express = require('express');
-var passport = require('passport');
-var async = require('async');
-var crypto = require('crypto');
-var nodemailer = require('nodemailer');
-var User = require('../models/user');
-var middleware = require('../middleware/secure');
-var {
-    pages_security
-} = middleware
+import express from 'express';
+// import { authenticate } from 'passport';
+// import async from 'async';
+// import crypto from 'crypto';
+// import nodemailer from 'nodemailer';
+// import { find } from '../models/user';
+// import middleware from '../middleware/secure';
+// const {
+//     pages_security
+// } = middleware
 
-var router = express.Router();
+const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('home', {
-        message: req.flash('signupMessage')
+  res.render("home.ejs");
+    res.render('home.ejs', {
+        // message: req.flash('signupMessage')
+        message: "A function goes here"
     })
 });
 
-router.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/home',
-    failureRedirect: '/#signup',
-    failureFlash: true
-}));
+// router.post('/signup', authenticate('local-signup', {
+//     successRedirect: '/home',
+//     failureRedirect: '/#signup',
+//     failureFlash: true
+// }));
 
-router.get('/signin', (req, res) => res.render('signin', {
-    message: req.flash('signinMessage')
-}));
+// router.get('/signin', (req, res) => res.render('signin', {
+//     message: req.flash('signinMessage')
+// }));
 
-router.post('/signin', passport.authenticate('local-signin', {
-    successRedirect: '/home',
-    failureRedirect: '/signin',
-    failureFlash: true
-}));
+// router.post('/signin', authenticate('local-signin', {
+//     successRedirect: '/home',
+//     failureRedirect: '/signin',
+//     failureFlash: true
+// }));
 
-router.get('/home', pages_security, (req, res) => res.render('profile/home', {
-    user: req.user
-}))
+// router.get('/home', pages_security, (req, res) => res.render('profile/home', {
+//     user: req.user
+// }))
 
 router.get('/about', (req, res) => {
-    res.render('about');
+    res.render('about.ejs');
 });
 
-router.get('/support', (req, res) => res.render('support', {
+router.get('/support', (req, res) => res.render('support.ejs', {
     user: req.user
 }));
 
 
-router.get('/signout', pages_security, (req, res) => {
-    req.logout();
-    res.redirect('/');
-});
+// router.get('/signout', pages_security, (req, res) => {
+//     req.logout();
+//     res.redirect('/');
+// });
 
-router.get('/forgot', (req, res) => {
-    res.render('forgot');
-});
+// router.get('/forgot', (req, res) => {
+//     res.render('forgot');
+// });
 
-router.get('/library', pages_security, (req, res) => {
-    res.render('profile/library', {
-        user: req.user
-    });
-});
+// router.get('/library', pages_security, (req, res) => {
+//     res.render('profile/library', {
+//         user: req.user
+//     });
+// });
 
-router.get('/privacy', (req, res) => {
-    res.render('privacy')
-})
+// router.get('/privacy', (req, res) => {
+//     res.render('privacy')
+// })
 
-router.get('/user', (req, res) => {
-    User.find()
-        .then(user => {
-            res.json(user);
-        })
-        .catch(err => {
-            res.json(err);
-        })
-});
+// router.get('/user', (req, res) => {
+//     find()
+//         .then(user => {
+//             res.json(user);
+//         })
+//         .catch(err => {
+//             res.json(err);
+//         })
+// });
 
-module.exports = router;
+export default router;

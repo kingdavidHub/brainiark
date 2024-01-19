@@ -1,33 +1,33 @@
 <section class="section-questions" id="quiz-cont">
-    <div class="question-design grey lighten-3">
-        <div class="question-count red darken-3" id="timeLeft">
-            timer here
-        </div>
-        <div id="question">
-            <div id="question-holder">
-                <span class="question-holder"></span>
-            </div>
-            <div class="question-information info-holder"></div>
-            <% include ../partials/calculator %>
-        </div>
+<div class="question-design grey lighten-3">
+    <div class="question-count red darken-3" id="timeLeft">
+        timer here
+    </div>
+  <div id="question">
+      <div id="question-holder">
+          <span class="question-holder"></span>
+      </div>
+      <div class="question-information info-holder"></div>
+      <%- include ("../partials/calculator.ejs") %>
+  </div>
 </div>
 
 <div class="button-holders">
-    <div class="row">
-        <div class="col s12 m5 l5">
-                <button id="butt-0"></button>
-        </div>
-        <div class="col s12 m5 l5">
-                <button id="butt-1"></button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m5 l5">
-                    <button id="butt-2"></button>
-            </div>
-            <div class="col s12 m5 l5">
-                <button id="butt-3"></button>
-            </div>
-    </div>
+<div class="row">
+  <div class="col s12 m5 l5">
+          <button id="butt-0"></button>
+  </div>
+  <div class="col s12 m5 l5">
+          <button id="butt-1"></button>
+      </div>
+  </div>
+  <div class="row">
+  <div class="col s12 m5 l5">
+          <button id="butt-2"></button>
+  </div>
+  <div class="col s12 m5 l5">
+      <button id="butt-3"></button>
+  </div>
+</div>
 </div>
 </section>

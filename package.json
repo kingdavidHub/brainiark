@@ -1,6 +1,6 @@
 {
   "name": "brainiark",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A web application interface",
   "main": "index.js",
   "type": "module",
