@@ -1,4 +1,5 @@
 import express from "express";
+import dotenv from "dotenv";
 // const mongoose = require('mongoose');
 // const favicon = require('serve-favicon');
 // const path = require('path');
@@ -7,6 +8,8 @@ import express from "express";
 // const passport = require('passport');
 // const bodyParser = require('body-parser');
 // const sess = require('./config/session');
+
+
 
 // require('./config/passport');
 // require('now-env');
@@ -20,7 +23,11 @@ import accountRoutes from "./routes/account.js";
 // mongoose.Promise = global.Promise;
 
 const app = express();
+dotenv.config();
+const port = process.env.PORT || 5000;
 
+
+// middleware
 app.use(express.static("public"));
 // app.use(bodyParser.urlencoded({
 //     extended: false
@@ -52,6 +59,6 @@ app.use("/account", accountRoutes);
 //   });
 // });
 
-app.listen(3000, () => {
-  console.log(`Server listening at port 3000`);
+app.listen(port, () => {
+  console.log(`Server listening at port ${port}`);
 });
