@@ -1,12 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
+import bodyParser from "body-parser";
 // const mongoose = require('mongoose');
-// const favicon = require('serve-favicon');
-// const path = require('path');
 // const flash = require('connect-flash');
 // const session = require('cookie-session');
 // const passport = require('passport');
-// const bodyParser = require('body-parser');
 // const sess = require('./config/session');
 
 
@@ -29,11 +27,10 @@ const port = process.env.PORT || 5000;
 
 // middleware
 app.use(express.static("public"));
-// app.use(bodyParser.urlencoded({
-//     extended: false
-// }));
-// app.use(favicon('favicon.ico'));
-// app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use('/favicon.ico', express.static('images/favicon.ico'));
+
 // app.use(flash());
 // app.use(session(sess));
 // app.use(passport.initialize());
@@ -46,18 +43,23 @@ app.use("/account", accountRoutes);
 
 // app.get('env') === 'production' ? (app.set('trust proxy', 1), sess.secure = true) : {}
 
-// app.use((req, res, next) => {
-//   const err = new Error("Not Found");
-//   err.status = 404;
-//   next(err);
-// });
+// Error handling middleware
+app.use((req, res, next) => {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
-// app.use((err, req, res, next) => {
-//   res.render("error", {
-//     status: err.status,
-//     message: err.message,
-//   });
-// });
+// Error handler
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  res.render('error.ejs', { 
+    status: err.status || 500,
+    message: err.message,
+    error: {}
+  });
+});
+
 
 app.listen(port, () => {
   console.log(`Server listening at port ${port}`);

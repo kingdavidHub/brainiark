@@ -16,7 +16,7 @@
 </head>
 <body>
     <header>
-            <% include partials/home-nav %>
+            <%- include ("partials/home-nav.ejs") %>
     </header>
     
     <div class="error-img">
@@ -24,8 +24,8 @@
     </div>
 
     <section class="status">
-        <h1><%= status %></h1>
-        <h4 class="status-message"><%= message %></h4>
+        <h1><%= locals.status %></h1>
+        <h4 class="status-message"><%= locals.message %></h4>
     </section>
 
     <section>
@@ -38,7 +38,7 @@
     </section>
 
 <footer class="page-footer">
-            <% include partials/footer %>
+            <%- include ("partials/footer.ejs") %>
 </footer>
 
 
