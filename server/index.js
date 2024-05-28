@@ -1,11 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
-
+import cors from "cors";
 
 const app = express();
 dotenv.config();
-const port = process.env.PORT || 5000;
+app.use(cors());
+
+
+const PORT = process.env.LOCAL_PORT || 3000;
 
 
 // middleware
@@ -15,10 +18,24 @@ app.use(bodyParser.json());
 app.use('/favicon.ico', express.static('images/favicon.ico'));
 
 
-// routes
-import indexRouter from "./routes/index.js";
 
-app.use("/", indexRouter);
+
+app.get("/v1/api", (req, res) => {
+  try {
+    res.status(200).json({
+      msg: "Hey there talking to the backend API endpoint"
+    })
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+})
+
+
+
+// routes
+// import indexRouter from "./routes/index.js";
+
+// app.use("/", indexRouter);
 
 
 // app.get('env') === 'production' ? (app.set('trust proxy', 1), sess.secure = true) : {}
@@ -41,6 +58,6 @@ app.use((err, req, res, next) => {
 });
 
 
-app.listen(port, () => {
-  console.log(`Server listening at port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server listening at port ${PORT} 🚀🚀`);
 });
