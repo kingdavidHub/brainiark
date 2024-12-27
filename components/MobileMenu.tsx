@@ -12,7 +12,7 @@ const MobileMenu = () => {
         className={`
             ${isOpen ? "block top-[5rem]" : "-top-[100%]"} sm:hidden
             absolute  right-[1rem] w-[15rem] bg-white
-        border-[1px] border-black rounded-lg shadow-xl flex flex-col items-center px-3 py-6
+        border-[1px] border-black rounded-lg shadow-2xl flex flex-col items-center px-3 py-6 z-10
         `}
       >
         <ul className="flex flex-col items-center gap-2 w-full justify-center">
@@ -28,12 +28,16 @@ const MobileMenu = () => {
         </ul>
 
         <div className="flex  items-center gap-3 mt-5">
-          <Button className="bg-white text-black border border-black px-6 hover:bg-black hover:text-white">
-            Login
-          </Button>
-          <Button className="bg-black text-white border border-black px-6 hover:bg-white hover:text-black">
-            SignUp
-          </Button>
+          <Link href={"/login"}>
+            <Button className="bg-white text-black border border-black px-6 hover:bg-black hover:text-white">
+              Login
+            </Button>
+          </Link>
+          <Link href={"/signup"}>
+            <Button className="bg-black text-white border border-black px-6 hover:bg-white hover:text-black">
+              SignUp
+            </Button>
+          </Link>
         </div>
       </div>
       <button className="sm:hidden" onClick={() => setIsOpen(!isOpen)}>

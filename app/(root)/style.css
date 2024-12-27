@@ -1,0 +1,6 @@
+.sketch-overlay {
+  background-image: url('/gray-triangle.jpg');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: repeat-x;
+}
